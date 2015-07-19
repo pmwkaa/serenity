@@ -19,12 +19,11 @@ Stored procedures, etc.
 <p>Serenity is build on top of Append-Only MVCC storage engine <a href="http://sphia.org">Sophia</a>, which is designed to efficiently store data much larger then available RAM.
 <br>
 <br>
-<p><b>BUILD</b>
+<p><b>BUILD AND USE</b>
 
 <p>git clone --recursive github.com/pmwkaa/serenity.git
 <br>
 make<br><br>
 
-<p><b>RUN</b><br>
 <p>Edit <b>serenity.conf</b> file or run <b>serenity</b> binary as is to start the database in default configuration.<br>
 Use redis-cli, redis-benchmark, memtier_benchmark to test.
