@@ -1,3 +1,4 @@
 *.o
 serenity
 example_module/example.so
+serenity-db
