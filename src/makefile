@@ -1,6 +1,6 @@
 
 CC      = gcc
-CFLAGS  = -std=c99 -Wall -Wextra -pedantic -O0 -I. -I../storage -Wall -g
+CFLAGS  = -std=c99 -Wall -Wextra -pedantic -O2 -I. -I../storage -Wall -g
 LFLAGS  = ../storage/libsophia.a -pthread -ldl -rdynamic
 OBJECTS = sn_time.o \
           sn_config.o \

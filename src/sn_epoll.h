@@ -16,7 +16,6 @@ struct snepoll {
 	int size;
 	int count;
 	int fd;
-	snlist list;
 	snloop *loop;
 };
 

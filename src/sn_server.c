@@ -53,7 +53,8 @@ sn_server_onconnect(snloopfd *fd, int type snunused)
 	struct sockaddr_in addr;
 	socklen_t addrlen = sizeof(addr);
 	int client_fd;
-	client_fd = accept(fd->fd, (struct sockaddr*)&addr, (socklen_t*)&addrlen);
+	client_fd = accept(fd->fd, (struct sockaddr*)&addr,
+	                   (socklen_t*)&addrlen);
 	if (snunlikely(client_fd == -1)) {
 		sn_log(s->log, "error: accept(): %s",
 		       strerror(errno));

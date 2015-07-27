@@ -59,21 +59,21 @@ snhandle *sn_epoll(snloop *l)
 	e->loop = l;
 	e->h.shutdown = sn_epoll_shutdown;
 	e->h.tick = sn_epoll_tick;
-	sn_listinit(&e->h.link);
 	e->count = 0;
 	e->size = 1024;
-	e->e = sn_malloc(sizeof(struct epoll_event) * e->size);
+	int size = sizeof(struct epoll_event) * e->size;
+	e->e = sn_malloc(size);
 	if (snunlikely(e->e == NULL)) {
 		sn_free(e);
 		return NULL;
 	}
+	memset(e->e, 0, size);
 	e->fd = epoll_create(e->size);
 	if (snunlikely(e->fd == -1)) {
 		sn_free(e->e);
 		sn_free(e);
 		return NULL;
 	}
-	sn_listinit(&e->list);
 	return &e->h;
 }
 
@@ -101,7 +101,6 @@ int sn_epoll_add(snhandle *h, snloopfd *o, int type)
 	if (snunlikely(rc == -1))
 		return -1;
 	e->count++;
-	sn_listappend(&e->list, &o->link);
 	return 0;
 }
 
@@ -119,7 +118,6 @@ int sn_epoll_modify(snhandle *h, snloopfd *o, int type)
 	if (snunlikely(rc == -1))
 		return -1;
 	o->type = type;
-	sn_listunlink(&o->link);
 	return 0;
 }
 
@@ -133,10 +131,7 @@ int sn_epoll_delete(snhandle *h, snloopfd *o)
 	if (o->type & SN_LOOPFD_W)
 		ev.events |= EPOLLOUT;
 	ev.data.ptr = o;
-	int rc = epoll_ctl(e->fd, EPOLL_CTL_DEL, o->fd, &ev);
-	if (snunlikely(rc == -1))
-		return -1;
 	e->count--;
-	sn_listunlink(&o->link);
-	return 0;
+	assert(e->count >= 0);
+	return epoll_ctl(e->fd, EPOLL_CTL_DEL, o->fd, &ev);
 }

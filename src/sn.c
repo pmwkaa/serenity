@@ -47,8 +47,7 @@ static int on_read(snserver *s, snclient *c)
 		}
 		if (rc == -1) {
 			sn_encode_errorf(&c->result, "ERROR bad request");
-			sn_clientwrite(c);
-			sn_closeof(s, c);
+			sn_clientwrite_ready(c);
 			break;
 		}
 		sn *serenity = s->ptr;
