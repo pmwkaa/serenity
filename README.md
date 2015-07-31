@@ -21,7 +21,7 @@ Stored procedures, etc.
 <br>
 <p><b>BUILD AND USE</b>
 
-<p>git clone --recursive github.com/pmwkaa/serenity.git
+<p>git clone --recursive https://github.com/pmwkaa/serenity.git
 <br>
 make<br><br>
 
