@@ -27,3 +27,8 @@ make<br><br>
 
 <p>Edit <b>serenity.conf</b> file or run <b>serenity</b> binary as is to start the database in default configuration.<br>
 Use redis-cli, redis-benchmark, memtier_benchmark to test.
+
+<p><b>Docker</b>
+
+<pre>docker run --rm -it -p 6379:6379 fgribreau/serenity</pre>
+</p>
