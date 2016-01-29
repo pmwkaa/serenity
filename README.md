@@ -1,3 +1,4 @@
+[![CodeHunt.io](https://img.shields.io/badge/vote-codehunt.io-02AFD1.svg)](http://codehunt.io/sub/serenity/?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)   
 <p align="center">
     <a href="http://sphia.org"><img src="http://serenitydb.org/logo.png" width="20%" height="20%" /></a>
 </p>
