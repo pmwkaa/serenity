@@ -1,22 +1,13 @@
-<p align="center">
-    <a href="http://sphia.org"><img src="http://serenitydb.org/logo.png" width="20%" height="20%" /></a>
-</p>
-<p align="center">
-    disk storage and real transactions under Redis compatible protocol
-    <br>
-    <a href="http://serenitydb.org/">serenity database</a>
-    <br>
-    <br>
-</p>
-
-<p><b>ABOUT</b>
 
 <p>Serenity database implements basic Redis commands and extends them with
 support of Consistent Cursors, ACID transactions,
 Stored procedures, etc.
 
+<p>This project is a proof-of-concept.
+
 <p>At the same time being compatible with the Redis configuration, client drivers, command clients, benchmark tools, etc.
-<p>Serenity is build on top of Append-Only MVCC storage engine <a href="http://sphia.org">Sophia</a>, which is designed to efficiently store data much larger then available RAM.
+<p>Serenity is build on top of Append-Only MVCC storage engine <a href="http://sphia.org">Sophia</a>, which is designed to efficiently store
+data much larger then available RAM.
 <br>
 <br>
 <p><b>BUILD AND USE</b>
